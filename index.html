@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzeria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ribeye&family=Roboto:ital,wght@0,100;0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        *{
+            cursor: url('Cursor.png'),pointer;
+        }
+
+        body{
+            margin-left: 0;
+            margin-right: 0;
+            font-size: 20px;
+            font-family: Roboto;
+        }
+    
+        /* ХІДЕР */
+
+        header{
+            height: 100px;
+            margin-top: 70px;
+            background-color: rgb(255, 245, 64);
+        }
+
+        .logo{
+            width: 80px;
+            height: 80px;
+            border-radius: 100%;
+            position: absolute;
+            top: 79px;
+            left: 117px;
+            
+        }
+
+        .logo:hover{
+            transition: 0.7s;
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        nav{
+            right: 335px;
+            top: 80px;
+            position: absolute;
+        }
+
+        nav a{
+            margin-right: 50px;
+            text-decoration: none;
+            color: rgb(52, 44, 0);
+        }
+
+        .wrapper{
+            max-width: 800px;
+            padding: 5px 10px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+    
+        }
+
+        .menu{
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        nav ul{
+            list-style-type: none;
+        }
+
+        .menu>li{
+            transition: all 1s;
+            background-color: rgb(231, 222, 60);
+            color: white;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .menu>li:hover{
+            background-color: rgb(219, 211, 49);
+        }
+
+        .menu>li a{
+            color: white;
+        }
+
+        .menu-hidden{
+            /* display: none; */
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            transition: all 1s;
+            width: 30px;
+            text-align: center;
+        }
+
+        .menu-hidden>li{
+            margin: 5px;
+            padding: 5px;
+            background-color: rgb(231, 222, 60);
+            border-radius: 7px;
+        }
+
+        .menu-hidden>li:hover{
+            background-color: white;
+            transition: 1s;
+        }
+
+        .menu-hidden>li:hover a{
+            color: rgb(231, 222, 60);
+        }
+
+        .menu-li:hover .menu-hidden{
+            /* display: block; */
+            width: 110px;
+            height: 80px;
+        }
+
+        /* МЕЙН */
+        
+        h1{
+            margin-left: 88px;
+            margin-top: 102px;
+        }
+
+        .verh-site{
+            margin-left: 88px;
+            margin-top: 49px;
+            width: 502px;
+            font-size: 24px;
+        }
+
+        iframe{
+            margin-top: 68px;
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            left: 1000px;
+            top: 168px;
+        }
+
+        button{
+            margin-left: 74px;
+            width: 221px;
+            height: 55px;   
+            font-size: 20px;
+        }
+
+        span a{
+            color: rgb(49, 49, 49);
+            text-decoration: none;
+        }
+
+        .first-button:first-child{
+            border-right: 2px solid black;
+            border-bottom: 2px solid black;
+            border-left: 2px solid rgb(82, 82, 82);
+            border-top: 2px solid rgb(82, 82, 82);
+            padding: 10px 70px 10px 70px;
+            margin-left: 85px;
+            background-image: linear-gradient(95deg, green, rgb(11, 224, 11));
+            box-shadow: 10px 10px 10px rgba(179, 179, 179, 0.774);
+        }
+
+        .first-button:first-child:hover{
+            transition: 0.1s ease-in;
+            padding: 15px 75px 15px 75px;
+        }
+        
+        .last-button:last-child{
+            border-right: 2px solid black;
+            border-bottom: 2px solid black;
+            border-left: 2px solid rgb(82, 82, 82);
+            border-top: 2px solid rgb(82, 82, 82);
+            padding: 10px 80px 10px 80px;
+            margin-left: 20px;
+            background-image: linear-gradient(95deg, rgb(255, 98, 0), rgb(255, 247, 0));
+            box-shadow: 10px 10px 10px rgba(179, 179, 179, 0.774);
+        }
+
+        .last-button:last-child:hover{
+            transition: 0.1s ease-in;
+            padding: 15px 85px 15px 85px;
+        }
+
+        .h2-menu{
+            text-align: center;
+            margin-top: 236px;
+        }
+
+        .menu_products{
+            text-align: center;
+        }
+
+        article img{
+            width: 454px;
+            height: 385px;
+            margin-top: 86px;
+            margin-left: 88px;
+            clip-path: circle(45%);
+        }
+
+        article:hover img{
+            transition: ease 0.5s;
+            width: 464px;
+            height: 395px;
+            margin-top: 75px;
+            margin-left: 77px;
+        }
+
+        .products article{
+            margin-left: 10px;
+            box-shadow: 10px 10px 10px rgba(179, 179, 179, 0.774);
+            border: 5px solid black;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            padding-bottom: 20px;
+            margin-top: 70px;
+            width: 1400px;
+            display: flex;
+            background-repeat: no-repeat;
+            background-image: url(/Backgrounds/Untitled1.svg);
+        }
+
+        .products-drinks article{
+            margin-left: 10px;
+            box-shadow: 10px 10px 10px rgba(179, 179, 179, 0.774);
+            border: 5px solid black;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            padding-bottom: 20px;
+            margin-top: 70px;
+            width: 1400px;
+            display: flex;
+            background-repeat: no-repeat;
+            background-image: url(/Backgrounds/UntitledDrinks.svg);
+        }
+
+        .first-drink div{
+            position: relative;
+            width: 300px;
+        }
+
+        .grn{
+            color: rgb(67, 196, 3);
+            font-size: 35px;
+        }
+
+        .grn span{
+            color: red;
+        }
+
+        .black{
+            color: black;
+        }
+
+        .pizzas{
+            text-align: center;
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: 130px;
+        }
+
+        aside{
+            width: 190px;
+            height: 190px;
+            border: 3px solid black;
+            border-radius: 100px;
+            padding-left: 5px;
+            padding-top: 10px;
+            margin: 0 40px;
+            background: linear-gradient(70deg, rgb(208, 216, 122), rgb(156, 169, 92), rgb(220, 228, 129), rgb(156, 169, 92));
+            box-shadow: 10px 10px 10px rgba(179, 179, 179, 0.774);
+        }
+
+        aside:hover{
+            transition: 0.5s;
+            transform: rotate(360deg) scale(1.3);
+        }
+
+        .asides{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        aside p{
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        #about-us{
+            margin-top: 130px;
+        }
+
+        #about-us p{
+            box-shadow: 10px 10px 10px rgba(179, 179, 179, 0.774);
+            height: 170px;
+            width: 900px;
+            background: url(/Backgrounds/Untitled2.png);
+            padding: 90px 196px;
+            margin-left: 20px;
+            margin-top: 85px;
+            margin-bottom: 193px;
+            border: black solid 5px;
+            border-bottom-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            
+        }
+
+        /* ФУТЕР */
+
+        footer{       
+            margin-bottom: 0;   
+            border-top: 2px solid black; 
+            border-right: 2px solid black;  
+            border-top-right-radius: 50px;
+            height: 427px;
+            background: url(https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcQcHbxCjB7FY6Rttw1VZFdh0gIZmm4MLLjfmD0dhA11saxBKG_D49VVkmlvz3sE71-b);
+        }
+
+        footer b{
+            position: relative;
+            top: 3px;
+            margin-top: 69px;
+            margin-left: 2px;
+        }
+
+        footer div{
+            position: relative;
+            top: -201px;
+            margin-top: 68px;
+            margin-left: 88px;
+        }
+
+        .sise-smaller-footer{
+            position: relative;
+            bottom: 0px;
+            left: -60px;
+            margin-top: 50px;
+            margin-left: 88px;
+            font-size: 15px;
+        }
+
+        footer img{
+            width: 100px;
+            border-radius: 100px;
+            margin-left: 10px;
+        }
+
+        .inst{
+            width: 85px;
+        }
+
+        .logo-footer{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            left: 795px;
+            top: 97px;
+            
+        }
+
+        .number{
+            color: blue;
+            text-decoration: underline;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+
+        <div class="wrapper">
+            <img class="logo" src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-logo-template-design-183c12cfbe00ef109c299d864f364e58_screen.jpg?ts=1635756978" alt="logo">
+        <nav>
+                <ul class="menu">
+                    <li class="menu-li">
+                        <span>Меню</span>
+                        <ul class="menu-hidden">
+                            <li><a href="#pizas">Піци</a></li>
+                            <li><a href="#drinks">Напої</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#shares">Акції</a> 
+                    </li>
+                    <li>    
+                        <a href="#about-us">Про нас</a>
+                    </li>
+                </ul>
+        </nav>
+    </header>
+    <main>
+    
+        <h1>Піцерія</h1>
+
+            <p class="verh-site">Знаєш що замовити, натискай на кнопку і 
+                ми тoбі зателефонуємо. Або переходь до меню
+            </p>
+            <div>
+                <span class="first-button"><a href="#phone">Дзвінок</a></span>
+                <span class="last-button"><a href="#menu">Меню</a></span>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.0267248638347!2d24.047086576828743!3d49.86074262964813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add02b82f9e5d%3A0x40462f2f82d4a9cd!2z0YPQuy4g0JHQvtCz0LTQsNC90LAg0KXQvNC10LvRjNC90LjRhtC60L7Qs9C-LCDQm9GM0LLQvtCyLCDQm9GM0LLQvtCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1sru!2sua!4v1696960030459!5m2!1sru!2sua" width="600" height="450" style="border:0;" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<section class="products">
+    <h2 id="menu" class="h2-menu">Меню</h2>
+    
+    <h3 class="menu_products" id="pizas">Піци</h3>
+            <article>
+                <img src="https://i.ytimg.com/vi/7NyZxjAHcck/maxresdefault.jpg">
+                <div>
+                    <h3>Папероні</h3>
+                    <p>томатний соус з орегано, салямі папероні, томати, маслини, подвійна порція сиру моцарела 
+                        <p class="grn">179грн</p></p>
+                </div>
+            </article>
+
+            <article>
+                <img src="https://images.pizza33.ua/products/product/pe6RV4SEkqlbqqUb0R1r2mFrfGCFFkNT.jpg">
+                <div>
+                    <h3>Гавайська</h3>
+                    <p>куряче філе, помідори, сир моцарела, кукурудза, ананаси, соус маринара, прованські трави 
+                        <p class="grn"><span>159</span>/129грн</p></p>
+                </div>
+            </article>
+
+            <article>
+                <img src="https://images.pizza33.ua/products/product/m8puwKrKKboEnfjOt3OEFvuZWwgdHsQW.png">
+                <div>
+                    <h3>Маргарита</h3>
+                    <p>помідорами Сан-Марцано, сиром моцарелла, свіжим базиліком, сіллю та оливковою олією 
+                        <p class="grn">189грн</p></p>
+                </div>
+            </article>
+</section>
+<section class="products-drinks">
+        <h3 class="menu_products" id="drinks">Напої</h3>
+
+            <article>
+                <img src="/Photos/Milkshake.png">
+                <div>
+                    <h3>Мілкшейк</h3>
+                    <p>
+                        <p><input type="radio" name="s1" id="">Зі смаком шоколаду</p>
+                        <p><input type="radio" name="s1" id="">Зі смаком полуниці</p>
+                        <p><input type="radio" name="s1" id="">Зі смаком ананасу</p>        
+                    <p class="grn">69грн</p></p>
+                </div>
+            </article>
+            <article>
+                <img src="/Photos/Tea.png">
+                <div>
+                    <h3>Чай</h3>
+                    <p>
+                        <p><input type="radio" name="s2" id="">Зелений</p>
+                        <p><input type="radio" name="s2" id="">Чорний</p>
+                        <p><input type="radio" name="s2" id="">Фруктовий</p>
+                    <p class="grn">19грн</p></p>
+                </div>
+            </article>
+            <article>
+                <img src="/Photos/Coffee.jpeg">
+                <div>
+                    <h3>Кава</h3>
+                    <p>
+                        <p><input type="radio" name="s3" id="">Латте</p>
+                        <p><input type="radio" name="s3" id="">Еспресо</p>
+                    <p class="grn">39грн</p></p>
+                </div>
+            </article>
+</section>
+<section> 
+        <h2 id="shares">Акції</h2>
+    <div class="asides">
+        <aside>
+            <p>З'їж піцу діаметром 1м за 5хв, отримаєш 100 грн</p>
+        </aside>
+
+        <aside>
+            <p>Купи 2 піци і отримаєш третю в подарунок</p>
+        </aside>
+
+        <aside>
+            <p>Купи піцу діаметром 60см і отримай напій в подарунок</p>               
+        </aside>
+    </div>
+</section> 
+<section id="about-us"> 
+        <h2>Про нас</h2>
+                    <p>
+                Якщо хочете посмакувати смачною піцою та напоями, то приходьте до Pizzeria. 2% з кожної покупки ми передамо ЗСУ!
+                Тому ви зможете не лише смачно поїсти, а й допомогти нашим захисникам!
+                    </p>
+</section>
+    </main>
+    <footer>
+        <img class="logo-footer" src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-logo-template-design-183c12cfbe00ef109c299d864f364e58_screen.jpg?ts=1635756978">
+        <div>
+            <b id="phone">Номер телефону: <span class="number">+360-99-342-64-68</span></b>
+            <p>Місто Львів</p> 
+            <p>Вул. Богдана Хмельницького 14</p>
+        
+        <p class="sise-smaller-footer">Соц мережі</p>
+    <p>
+        <img class="tg" src="https://dr1.by/wp-content/uploads/2018/12/telegram_PNG9.png" alt="">
+        <img class="inst" src="data:image/jpeg;base64,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" alt="">
+    </p>
+        </div>
+    </footer>
+</body>
+</html>
