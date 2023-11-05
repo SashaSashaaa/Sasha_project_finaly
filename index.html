@@ -13,6 +13,7 @@
         }
 
         body{
+            background-color: rgb(255, 251, 202);
             margin-left: 0;
             margin-right: 0;
             font-size: 20px;
@@ -132,6 +133,25 @@
             margin-top: 102px;
         }
 
+        .background-pizzeria{
+            position: absolute;
+            top: 170px;
+            width: 100%;
+            max-height: 700px;
+            border-top: 3px solid rgb(223, 219, 178);
+            z-index: -1;
+        }
+
+        .pizzeria{
+            position: relative;
+            background-color: rgba(199, 194, 193, 0.452);
+            width: 600px;
+            height: 260px;
+            right: -260px;
+            border-radius: 20px;
+            
+        }
+
         .verh-site{
             margin-left: 88px;
             margin-top: 49px;
@@ -139,14 +159,18 @@
             font-size: 24px;
         }
 
-        iframe{
+        .map{
+            border-radius: 20px;
             margin-top: 68px;
             width: 350px;
             height: 350px;
             position: absolute;
             left: 1000px;
             top: 168px;
+            opacity: 0.8;
         }
+
+        
 
         button{
             margin-left: 74px;
@@ -209,12 +233,42 @@
             clip-path: circle(45%);
         }
 
+        .article-child img{
+            position: relative;
+            left: 813px;
+            bottom: 40px;
+            width: 454px;
+            height: 385px;
+            margin-top: 86px;
+            margin-left: 88px;
+            clip-path: circle(45%);
+        }
+
         article:hover img{
             transition: ease 0.5s;
             width: 464px;
             height: 395px;
             margin-top: 75px;
             margin-left: 77px;
+        }
+
+        .article-child p{
+            position: relative;
+            right: 550px;
+        }
+
+        .article-child_drink_div{
+            position: relative;
+            left: 730px;
+        }
+
+        .article-child h3{
+            position: relative;
+            right: 550px;
+        }
+
+        .products-drinks{
+            margin-top: 700px;
         }
 
         .products article{
@@ -228,7 +282,19 @@
             width: 1400px;
             display: flex;
             background-repeat: no-repeat;
+            background-color: rgb(255, 249, 162);
             background-image: url(Backgrounds/Untitled1.svg);
+        }
+
+        .article-child{
+            position: relative;
+            text-align: right;
+            float: right;
+            top: -20px;
+            margin-right: 40px;
+            margin-bottom: 30px;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
         }
 
         .products-drinks article{
@@ -242,12 +308,8 @@
             width: 1400px;
             display: flex;
             background-repeat: no-repeat;
-            background-image: url(Backgrounds/UntitledDrinks.svg);
-        }
-
-        .first-drink div{
-            position: relative;
-            width: 300px;
+            background-color: rgb(255, 249, 162);
+            background-image: url(Backgrounds/UntitledDrinks.png);
         }
 
         .grn{
@@ -407,23 +469,29 @@
         </nav>
     </header>
     <main>
-    
-        <h1>Піцерія</h1>
+          <img class="background-pizzeria" src="pizzeria_photo.svg">
+        <div class="pizzeria">
+            <h1>Піцерія</h1>
 
             <p class="verh-site">Знаєш що замовити, натискай на кнопку і 
                 ми тoбі зателефонуємо. Або переходь до меню
             </p>
+        
             <div>
                 <span class="first-button"><a href="#phone">Дзвінок</a></span>
                 <span class="last-button"><a href="#menu">Меню</a></span>
             </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.0267248638347!2d24.047086576828743!3d49.86074262964813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add02b82f9e5d%3A0x40462f2f82d4a9cd!2z0YPQuy4g0JHQvtCz0LTQsNC90LAg0KXQvNC10LvRjNC90LjRhtC60L7Qs9C-LCDQm9GM0LLQvtCyLCDQm9GM0LLQvtCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1sru!2sua!4v1696960030459!5m2!1sru!2sua" width="600" height="450" style="border:0;" 
+        </div>
+        
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2572.0267248638347!2d24.047086576828743!3d49.86074262964813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add02b82f9e5d%3A0x40462f2f82d4a9cd!2z0YPQuy4g0JHQvtCz0LTQsNC90LAg0KXQvNC10LvRjNC90LjRhtC60L7Qs9C-LCDQm9GM0LLQvtCyLCDQm9GM0LLQvtCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1sru!2sua!4v1696960030459!5m2!1sru!2sua" width="600" height="450" style="border:0;" 
             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
 <section class="products">
+
     <h2 id="menu" class="h2-menu">Меню</h2>
-    
+
     <h3 class="menu_products" id="pizas">Піци</h3>
-            <article>
+            <article class="article-child">
                 <img src="https://i.ytimg.com/vi/7NyZxjAHcck/maxresdefault.jpg">
                 <div>
                     <h3>Папероні</h3>
@@ -441,7 +509,7 @@
                 </div>
             </article>
 
-            <article>
+            <article class="article-child">
                 <img src="https://images.pizza33.ua/products/product/m8puwKrKKboEnfjOt3OEFvuZWwgdHsQW.png">
                 <div>
                     <h3>Маргарита</h3>
@@ -464,14 +532,14 @@
                     <p class="grn">69грн</p></p>
                 </div>
             </article>
-            <article>
+            <article class="article-child">
                 <img src="Photos/Tea.png">
-                <div>
+                <div class="article-child_drink_div">
                     <h3>Чай</h3>
                     <p>
-                        <p><input type="radio" name="s2" id="">Зелений</p>
-                        <p><input type="radio" name="s2" id="">Чорний</p>
-                        <p><input type="radio" name="s2" id="">Фруктовий</p>
+                        <p>Зелений<input type="radio" name="s2" id=""></p>
+                        <p>Чорний<input type="radio" name="s2" id=""></p>
+                        <p>Фруктовий<input type="radio" name="s2" id=""></p>
                     <p class="grn">19грн</p></p>
                 </div>
             </article>
